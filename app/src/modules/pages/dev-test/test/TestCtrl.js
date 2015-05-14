@@ -1,7 +1,8 @@
 'use strict';
 
 angular.module('myApp').controller('TestCtrl', ['$scope', '$timeout', 'appHttp', 'UserModel', '$location', function($scope, $timeout, appHttp, UserModel, $location) {
-	
+
+	$scope.myVar = 'var13333';
 	$scope.user =UserModel.load();
 	
 	$scope.swipeIt =function(evt, direction, params) {

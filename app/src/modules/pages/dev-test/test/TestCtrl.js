@@ -33,19 +33,30 @@ angular.module('myApp').controller('TestCtrl', ['$scope', '$timeout', 'appHttp',
 	//});
 	//console.log('next line');
 
-	// Asynchronous function using a promise
-	function asyncFuncPromise(var1) {
-		var deferred =$q.defer();
-		$timeout(function() {
-			console.log('promise timeout finished');
-			deferred.resolve(); // Callback called.
-		}, 3000);
-		console.log('promise timeout started');
-		return deferred.promise;
-	}
+	//// Asynchronous function using a promise
+	//function asyncFuncPromise(var1) {
+	//	var deferred =$q.defer();
+	//	$timeout(function() {
+	//		console.log('promise timeout finished');
+	//		deferred.resolve(); // Callback called.
+	//	}, 3000);
+	//	console.log('promise timeout started');
+	//	return deferred.promise;
+	//}
+    //
+	//asyncFuncPromise(5)
+	//	.then(function() {
+	//		console.log('promise done');
+	//	});
 
-	asyncFuncPromise(5)
-		.then(function() {
-			console.log('promise done');
-		});
+	// using events, no callbacks or promises
+	// promises are generally how things are done.
+	$scope.$on('myEvt', function(evt, params) {
+		console.log('on myEvt');
+	});
+
+	$scope.$broadcast('myEvt', {});
+	$timeout(function () {
+		$scope.$broadcast('myEvt', {});
+	}, 3000);
 }]);

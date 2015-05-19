@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('myApp').controller('TestCtrl', ['$scope', '$timeout', 'appHttp', 'UserModel', '$location', function($scope, $timeout, appHttp, UserModel, $location) {
+angular.module('myApp').controller('TestCtrl', ['$scope', '$timeout', 'appHttp', 'UserModel', '$location', '$q', function($scope, $timeout, appHttp, UserModel, $location, $q) {
 
 	$scope.myVar = 'var13333';
 	$scope.user =UserModel.load();
@@ -20,16 +20,32 @@ angular.module('myApp').controller('TestCtrl', ['$scope', '$timeout', 'appHttp',
 	//var syncReturn =sync(5);
 	//console.log(syncReturn);
 
-	function asyncFunc(var1, callback) {
+	//function asyncFunc(var1, callback) {
+	//	$timeout(function() {
+	//		console.log('timeout finished');
+	//		callback();
+	//	}, 3000);
+	//	console.log('timeout started');
+	//}
+
+	//asyncFunc(5, function() {
+	//	console.log('async done');
+	//});
+	//console.log('next line');
+
+	// Asynchronous function using a promise
+	function asyncFuncPromise(var1) {
+		var deferred =$q.defer();
 		$timeout(function() {
-			console.log('timeout finished');
-			callback();
-		}, 1000);
-		console.log('timeout started');
+			console.log('promise timeout finished');
+			deferred.resolve(); // Callback called.
+		}, 3000);
+		console.log('promise timeout started');
+		return deferred.promise;
 	}
 
-	asyncFunc(5, function() {
-		console.log('async done');
-	});
-	console.log('next line');
+	asyncFuncPromise(5)
+		.then(function() {
+			console.log('promise done');
+		});
 }]);

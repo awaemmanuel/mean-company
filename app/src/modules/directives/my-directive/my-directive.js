@@ -40,8 +40,9 @@ angular.module('app').directive('appMyDirective', [ function () {
 				}
 			}
 			
-			var html ="<div>"+
-				"my-directive"+
+			var html ="<div class='app-my-directive'>"+
+				"my-directive is a new thing"+
+				"<br/>line 2"
 			"</div>";
 			return html;
 		},

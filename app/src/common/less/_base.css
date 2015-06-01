@@ -3363,6 +3363,9 @@ overflow:hidden;
 */
 /* app-layout */
 /* app-my-directive */
+.app-my-directive {
+  color: darkgreen;
+}
 .header-fixed {
   position: fixed;
   left: 0;

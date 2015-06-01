@@ -349,6 +349,48 @@
 									"layout.spec.js"
 								]
 							}
+						},
+						{
+							"name": "my-directive",
+							"files": {
+								"js": [
+									"my-directive.js"
+								],
+								"testUnit": [
+									"my-directive.spec.js"
+								],
+								"less": [
+									"my-directive.less"
+								]
+							}
+						},
+						{
+							"name": "my-directive",
+							"files": {
+								"js": [
+									"my-directive.js"
+								],
+								"testUnit": [
+									"my-directive.spec.js"
+								],
+								"less": [
+									"my-directive.less"
+								]
+							}
+						},
+						{
+							"name": "my-directive",
+							"files": {
+								"js": [
+									"my-directive.js"
+								],
+								"testUnit": [
+									"my-directive.spec.js"
+								],
+								"less": [
+									"my-directive.less"
+								]
+							}
 						}
 					]
 				},
@@ -561,9 +603,9 @@
 										"html": [
 											"test.html"
 										],
-									  "less": [
-										"test.less"
-									  ],
+										"less": [
+											"test.less"
+										],
 										"testUnit": [
 											"TestCtrl.spec.js"
 										]

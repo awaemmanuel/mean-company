@@ -5,7 +5,7 @@
 TODO
 
 @param {Object} attrs REMEMBER: use snake-case when setting these on the partial! i.e. my-attr='1' NOT myAttr='1'
-TODO
+	@param {String} customText Some special text
 
 @dependencies
 TODO
@@ -40,9 +40,10 @@ angular.module('app').directive('appMyDirective', [ function () {
 				}
 			}
 			
-			var html ="<div class='app-my-directive'>"+
+			var html ="<div class='app-my-directive-cont'>"+
 				"my-directive is a new thing"+
-				"<br/>line 2"
+				"<br />line 2"+
+				"<br /> custom text: "+attrs.customText+
 			"</div>";
 			return html;
 		},

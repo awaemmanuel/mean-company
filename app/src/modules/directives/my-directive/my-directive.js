@@ -2,7 +2,7 @@
 @toc
 
 @param {Object} scope (attrs that must be defined on the scope (i.e. in the controller) - they can't just be defined in the partial html). REMEMBER: use snake-case when setting these on the partial!
-TODO
+ @param {String} scopeOne A scope property
 
 @param {Object} attrs REMEMBER: use snake-case when setting these on the partial! i.e. my-attr='1' NOT myAttr='1'
     @param {String} customText just some ordinary text
@@ -28,6 +28,7 @@ angular.module('app').directive('appMyDirective', [ function () {
 	return {
 		restrict: 'A',
 		scope: {
+            scopeOne: '=',
 		},
 
 		// replace: true,
@@ -47,6 +48,7 @@ angular.module('app').directive('appMyDirective', [ function () {
 				"my-directive"+
 				"<br />will last a life time"+
                 "<br />custom text: "+ attrs.customText +
+                "<br />scope one: {{scopeOne}}" +
 			"</div>";
 			return html;
 		},

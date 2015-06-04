@@ -65,6 +65,7 @@ angular.module('app').directive('appMyDirective', [ function () {
 		
 		controller: function($scope, $element, $attrs) {
             $scope.scopeTwo = "scope two";
+
             $scope.emitEvt = function() {
                 $scope.$emit('appMyDirectiveEvt1', {});
                 console.log('directive emit event');

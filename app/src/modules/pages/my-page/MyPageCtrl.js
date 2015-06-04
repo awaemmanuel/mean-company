@@ -3,8 +3,10 @@
 
 'use strict';
 
-angular.module('myApp').controller('MyPageCtrl', ['$scope',
-function($scope) {
+angular.module('myApp').controller('MyPageCtrl', ['$scope', 'appItemsList',
+function($scope, appItemsList) {
+    $scope.items = appItemsList.load({});
+    /*
     $scope.items = [
         {
             title: 'title1'
@@ -22,5 +24,5 @@ function($scope) {
             title: 'title5'
         },
     ];
-	
+	*/
 }]);

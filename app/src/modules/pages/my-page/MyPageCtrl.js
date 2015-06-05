@@ -5,9 +5,7 @@
 
 angular.module('myApp').controller('MyPageCtrl', ['$scope', 'appItemsList',
 function($scope, appItemsList) {
-    $scope.items = appItemsList.load({});
-    /*
-    $scope.items = [
+    var items =  [
         {
             title: 'title1'
         },
@@ -23,6 +21,14 @@ function($scope, appItemsList) {
         {
             title: 'title5'
         },
+        {
+            title: 'title6'
+        },
+        {
+            title: 'title7'
+        },
     ];
-	*/
+
+    appItemsList.save(items, {});
+    $scope.items = appItemsList.load({});
 }]);

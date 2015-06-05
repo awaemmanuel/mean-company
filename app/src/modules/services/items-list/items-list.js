@@ -22,9 +22,29 @@ angular.module('app').factory('appItemsList', [ function() {
 		//TODO, i.e.
 		save: function(items, params) {
 			this.items = items;
-		}
+		},
 		load: function(params) {
 			if (!this.items || this.items.length < 1) {
+				this.items = [
+					{
+						title: 'title1'
+					},
+					{
+						title: 'title2'
+					},
+					{
+						title: 'title3'
+					},
+					{
+						title: 'title4'
+					},
+					{
+						title: 'title5'
+					},
+                    {
+                        title: 'title6'
+                    }
+				];
 
 			}
 			return this.items;

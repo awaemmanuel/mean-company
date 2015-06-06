@@ -10,6 +10,14 @@ describe('TestCtrl', function(){
 		$ctrl = _$controller_('TestCtrl', {$scope: $scope});
 		UserModel = _UserModel_;
 	}));
+
+	function setUser(params) {
+		var user = {
+			_id: 'userid1',
+		};
+		return user;
+	}
+
 	
 	it('funcOne should be called', function() {
 		$scope.funcOne();
@@ -21,9 +29,7 @@ describe('TestCtrl', function(){
 	});
 
 	it('should have a valid user if saved', function() {
-		var user = {
-			_id: 'userid1',
-		};
+		var user = setUser({});
 		UserModel.save(user);
 		expect($scope.user._id).toBe(user._id);
 	});

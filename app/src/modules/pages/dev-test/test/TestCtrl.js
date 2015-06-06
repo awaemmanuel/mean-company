@@ -1,13 +1,17 @@
 'use strict';
 
 angular.module('myApp').controller('TestCtrl', ['$scope', '$timeout', 'appHttp', 'UserModel', '$location', '$q', function($scope, $timeout, appHttp, UserModel, $location, $q) {
-
+	$scope.log = [];
+	function logit(text, params) {
+		console.log('logit', + text);
+		$scope.log.push(text);
+	}
     $scope.$on('appMyDirectiveEvt1', function(evt, params) {
-        console.log('controller directive event');
+		logit('controller directive event');
     });
 
     $scope.funcOne = function() {
-        console.log('funcOne controller');
+        logit('funcOne controller');
     };
 
 	$scope.scopeOne = 'scope one is here now';
@@ -15,53 +19,53 @@ angular.module('myApp').controller('TestCtrl', ['$scope', '$timeout', 'appHttp',
 	$scope.user =UserModel.load();
 	
 	$scope.swipeIt =function(evt, direction, params) {
-		console.log('swipe: '+direction);
+		logit('swipe: '+direction);
 	};
 	
 	$scope.tapIt =function(evt, params) {
-		console.log('tap');
+		logit('tap');
 	};
 
 	function sync(var1) {
-		console.log('sync');
+		logit('sync');
 		return var1;
 	}
 	//var syncReturn =sync(5);
-	//console.log(syncReturn);
+	//logit(syncReturn);
 
 	//function asyncFunc(var1, callback) {
 	//	$timeout(function() {
-	//		console.log('timeout finished');
+	//		logit('timeout finished');
 	//		callback();
 	//	}, 3000);
-	//	console.log('timeout started');
+	//	logit('timeout started');
 	//}
 
 	//asyncFunc(5, function() {
-	//	console.log('async done');
+	//	logit('async done');
 	//});
-	//console.log('next line');
+	//logit('next line');
 
 	//// Asynchronous function using a promise
 	//function asyncFuncPromise(var1) {
 	//	var deferred =$q.defer();
 	//	$timeout(function() {
-	//		console.log('promise timeout finished');
+	//		logit('promise timeout finished');
 	//		deferred.resolve(); // Callback called.
 	//	}, 3000);
-	//	console.log('promise timeout started');
+	//	logit('promise timeout started');
 	//	return deferred.promise;
 	//}
     //
 	//asyncFuncPromise(5)
 	//	.then(function() {
-	//		console.log('promise done');
+	//		logit('promise done');
 	//	});
 
 	// using events, no callbacks or promises
 	// promises are generally how things are done.
 	$scope.$on('myEvt', function(evt, params) {
-		console.log('on myEvt');
+		logit('on myEvt');
 	});
 
 	$scope.$broadcast('myEvt', {});

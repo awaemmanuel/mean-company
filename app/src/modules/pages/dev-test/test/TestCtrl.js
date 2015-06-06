@@ -3,7 +3,7 @@
 angular.module('myApp').controller('TestCtrl', ['$scope', '$timeout', 'appHttp', 'UserModel', '$location', '$q', function($scope, $timeout, appHttp, UserModel, $location, $q) {
 	$scope.log = [];
 	function logit(text, params) {
-		console.log('logit', + text);
+		console.log('logit: ' + text);
 		$scope.log.push(text);
 	}
     $scope.$on('appMyDirectiveEvt1', function(evt, params) {
@@ -17,7 +17,7 @@ angular.module('myApp').controller('TestCtrl', ['$scope', '$timeout', 'appHttp',
 	$scope.scopeOne = 'scope one is here now';
 	$scope.myVar = 'var13333';
 	$scope.user =UserModel.load();
-	
+
 	$scope.swipeIt =function(evt, direction, params) {
 		logit('swipe: '+direction);
 	};

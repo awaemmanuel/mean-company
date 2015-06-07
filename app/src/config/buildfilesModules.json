@@ -28,8 +28,13 @@
 							"angular-cookies/angular-cookies.min.js",
 							"momentjs/min/moment.min.js",
 							"angular-array/array.min.js",
-							"angular-string/string.min.js"
-						]
+							"angular-string/string.min.js",
+						    "angular-google-auth/google-auth.min.js",
+                            "ngImgCrop/compile/minified/ng-img-crop.js"
+						],
+                        "css":  [
+                              "ngImgCrop/compile/minified/ng-img-crop.css"
+                        ]
 					},
 					"dirs": [
 						{

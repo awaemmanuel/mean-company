@@ -3427,6 +3427,12 @@ overflow:hidden;
 .test {
   color: red;
 }
+.cropArea {
+  background: #E4E4E4;
+  overflow: hidden;
+  width: 500px;
+  height: 350px;
+}
 .design-color-item > div {
   display: inline-block;
   margin: 0 10px;

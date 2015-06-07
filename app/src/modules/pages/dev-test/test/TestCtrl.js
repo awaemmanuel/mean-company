@@ -1,6 +1,21 @@
 'use strict';
 
 angular.module('myApp').controller('TestCtrl', ['$scope', '$timeout', 'appHttp', 'UserModel', '$location', '$q', function($scope, $timeout, appHttp, UserModel, $location, $q) {
+	$scope.myImage='';
+	$scope.myCroppedImage='';
+
+	var handleFileSelect=function(evt) {
+		var file=evt.currentTarget.files[0];
+		var reader = new FileReader();
+		reader.onload = function (evt) {
+			$scope.$apply(function($scope){
+				$scope.myImage=evt.target.result;
+			});
+		};
+		reader.readAsDataURL(file);
+	};
+	angular.element(document.querySelector('#fileInput')).on('change',handleFileSelect);
+
 	$scope.log = [];
 	function logit(text, params) {
 		console.log('logit: ' + text);

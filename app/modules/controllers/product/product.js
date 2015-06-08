@@ -22,7 +22,7 @@ var pathParts =dependency.buildPaths(__dirname, {});
 
 var CrudMod =require(pathParts.services+'crud/crud.js');
 var LookupMod =require(pathParts.services+'lookup/lookup.js');
-var MongoDBMod =require(pathParts.services+'mongo/mongodb.js');
+var MongoDBMod =require(pathParts.services+'mongodb/mongodb.js');
 
 var self;
 
@@ -284,7 +284,7 @@ Product.prototype.delete1 = function(db, data, params)
 Product.prototype.saveTitle = function(db, data, params)
 {
     var deferred = Q.defer();
-    var ret ={code:0, msg:'Product.saveTitle '};
+    var ret ={code:0, msg:'Product.saveTitle ', product: {}};
 
     var idObj =MongoDBMod.makeIds({id:data._id});
     db.product.update({_id: idObj}, { $set: {title: data.title} }, function(err, valid) {
@@ -292,6 +292,11 @@ Product.prototype.saveTitle = function(db, data, params)
             deferred.reject(ret);
         }
         else {
+			ret.product = {
+				_id: data._id,
+				title: data.title
+			};
+
             deferred.resolve(ret);
         }
     });

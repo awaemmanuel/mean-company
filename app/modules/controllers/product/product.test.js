@@ -343,26 +343,25 @@ function go(params) {
 		});
 	};
 
-    ///**
-    // @toc 10.
-    // @method saveTitle
-    // @param {Object} opts
-    // */
-    //var saveTitle =function(opts) {
-    //    //should save a product Title
-    //    var newTitle = 'saveTitle new Product title';
-    //    var params ={
-    //        _id: TEST_PRODUCT[0]._id,
-    //        title: newTitle
-    //    };
-    //    api.expectRequest({method:'Product.saveTitle'}, {data:params}, {}, {})
-    //        .then(function(res) {
-    //            var data =res.data.result;
-    //            console.log(data);
-    //            expect(data.title).toBe('bad title');
-    //            delete1({});
-    //        });
-    //};
+    /**
+     @toc 10.
+     @method saveTitle
+     @param {Object} opts
+     */
+    var saveTitle =function(opts) {
+        //should save a product Title
+        var newTitle = 'saveTitle new Product title';
+        var params ={
+            _id: TEST_PRODUCT[0]._id,
+            title: newTitle
+        };
+        api.expectRequest({method:'Product.saveTitle'}, {data:params}, {}, {})
+            .then(function(res) {
+                var data =res.data.result;
+                expect(data.product.title).toBe(newTitle);
+                delete1({});
+            });
+    };
 
 	
 	/**

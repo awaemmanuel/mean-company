@@ -21,7 +21,7 @@ function Cron(opts) {
 
 Cron.prototype.testRun = function(params) {
     new CronJob('5 * * * * *', function(){
-        console.log('You will see this message every five second');
+        //console.log('You will see this message every five second');
     }, null, true, "America/New_York");
 };
 
